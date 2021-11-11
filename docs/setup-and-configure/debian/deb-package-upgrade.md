@@ -112,6 +112,19 @@ sudo CHEQD_HOME_DIR=/cheqd dpkg -i cheqd-node_0.2.4_amd64.deb
 ```bash
 ln -s /cheqd/.cheqdnode/log /var/log/cheqd-node
 ```
+* Change `$HOME` directory for user `cheqd` by calling:
+```bash
+$ sudo usermod --home /path/to/new/home/dir cheqd 
+```
+
+* It's very important, please set te next parameters by calling under `cheqd` user:
+```bash
+$ cheqd-noded configure p2p send-rate 20000000
+$ cheqd-noded configure p2p recv-rate 20000000
+$ cheqd-noded configure p2p max-packet-msg-payload-size 10240
+$ cheqd-noded configure p2p min-gas-prices 25ncheq
+$ cheqd-noded configure fastsync-version v2
+```
 * Start `cheqd-noded` service by running:
 ```bash
 $ sudo systemctl start cheqd-noded
