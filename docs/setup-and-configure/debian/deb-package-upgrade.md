@@ -83,23 +83,23 @@ An alternative method to check a node's status is via the RPC interface, if it h
 * Remotely via the RPC interface: `cheqd-noded status --node <rpc-address>`
 * By opening the JSONRPC over HTTP status page through a web browser: `<node-address:rpc-port>/status`
 
-## Upgrade from `0.2.3` to `0.2.4`.
+## Upgrade from `0.2.3` to `0.2.5`.
 According to debian package usage on AWS instances and recovering after crashes we introduced new storage and mount points approach.
 For now, `$HOME` directory excepts to be `/home/cheqd` by default or it can be changed while `.deb` package install, like:
 ```bash
-sudo CHEQD_HOME_DIR=/path/to/home/directory dpkg -i cheqd-node_0.2.4_amd64.deb
+sudo CHEQD_HOME_DIR=/path/to/home/directory dpkg -i cheqd-node_0.2.5_amd64.deb
 ```
 In general, it's not required and up to system administrators how to ensure safe revocring after crashes.
 
-If you have `0.2.3` version installed and you want to follow the new `$HOME` directory approach the next steps can help with it:
+If you have `0.2.5` version installed and you want to follow the new `$HOME` directory approach the next steps can help with it:
 * Please define the mount point for `cheqd` root directory where all the configs and data will be placed. For example, let it be `/cheqd`.
 * Stop `cheqd-noded` service by running:
 ```bash
 $ sudo systemctl stop cheqd-noded
 ```
-* Install `.deb` package for `0.2.4` version:
+* Install `.deb` package for `0.2.5` version:
 ```bash
-sudo CHEQD_HOME_DIR=/cheqd dpkg -i cheqd-node_0.2.4_amd64.deb
+sudo CHEQD_HOME_DIR=/cheqd dpkg -i cheqd-node_0.2.5_amd64.deb
 ```
 * After that the next directory tree is expected:
 ```bash
